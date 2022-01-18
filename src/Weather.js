@@ -1,13 +1,65 @@
 import React from "react";
-import axios from "axios";
+import "./Weather.css";
 
-export default function Weather(props) {
-  function handleResponse(response) {
-    alert(`The Weather in ${props.city} is ${response.data.main.temp}°C`);
-  }
-  let apiKey = "cf794339bb437422a6881c419dd75e02";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=metric`;
+export default function Weather() {
+  let weatherData = {
+    city: "Sydney",
+    temperature: "26",
+    date: "Friday, 10:34am",
+    description: "Sunny Intervals",
+    imgUrl: "https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png",
+    humidity: "58",
+    wind: "6",
+  };
 
-  axios.get(apiUrl).then(handleResponse);
-  return <h2>Testing react</h2>;
+  return (
+    <div className="Weather">
+      <form className="mb-3">
+        <div className="row">
+          <div className="col-9">
+            <input
+              type="search"
+              placeholder="Type a city..."
+              className="form-control"
+              autoComplete="off"
+            />
+          </div>
+          <div className="col-3">
+            <input type="submit" value="🔍" className="btn btn-light w-50" />
+          </div>
+        </div>
+      </form>
+      <div className="overview">
+        <h1>{weatherData.city}</h1>
+        <ul>
+          <li> Last Updated: {weatherData.date}</li>
+          <li> {weatherData.description}</li>
+        </ul>
+      </div>
+      <div className="row">
+        <div className="col-6">
+          <div className="clearfix weather-temperature">
+            <img
+              src={weatherData.imgUrl}
+              alt={weatherData.description}
+              className="float-left"
+            />
+            <div className="float-left">
+              <strong>{weatherData.temperature}</strong>
+              <span className="units">°C </span>
+            </div>
+          </div>
+        </div>
+        <div className="col-6">
+          <ul>
+            <li>
+              <i>Feels Like 24°</i>
+            </li>
+            <li>Humidity:{weatherData.humidity}%</li>
+            <li>Wind Speed:{weatherData.wind} km/h</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
 }
