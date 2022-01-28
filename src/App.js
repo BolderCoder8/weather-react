@@ -1,19 +1,22 @@
 import "./App.css";
 import Weather from "./Weather";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <Weather />
-
-      <footer>
-        This project was coded by Laura Mooney and is{" "}
-        <a href="https://github.com/BolderCoder8/weather-react" target="_blank">
-          open-sourced on GitHub
-        </a>
-      </footer>
+      <div classname="container">
+        <Weather />
+        <footer>
+          This project was coded by Laura Mooney and is{" "}
+          <a
+            href="https://github.com/BolderCoder8/weather-react"
+            target="_blank"
+            rel="noreferrer"
+          >
+            open-sourced on GitHub Testing
+          </a>
+        </footer>
+      </div>
     </div>
   );
 }
-
-export default App;
