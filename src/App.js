@@ -5,11 +5,13 @@ function App() {
   return (
     <div className="App">
       <Weather />
-      <br />
-      <a href="https://github.com/BolderCoder8/weather-react">
-        Open Source Code
-      </a>
-      by Laura Mooney
+
+      <footer>
+        This project was coded by Laura Mooney and is{" "}
+        <a href="https://github.com/BolderCoder8/weather-react" target="_blank">
+          open-sourced on GitHub
+        </a>
+      </footer>
     </div>
   );
 }
