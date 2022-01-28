@@ -32,31 +32,25 @@ export default function Weather() {
       <div className="overview">
         <h1>{weatherData.city}</h1>
         <ul>
-          <li> Last Updated: {weatherData.date}</li>
-          <li> {weatherData.description}</li>
+          <li>Last Updated: {weatherData.date}</li>
+          <li>{weatherData.description}</li>
         </ul>
       </div>
       <div className="row">
         <div className="col-6">
           <div className="clearfix weather-temperature">
-            <img
-              src={weatherData.imgUrl}
-              alt={weatherData.description}
-              className="float-left"
-            />
-            <div className="float-left">
-              <strong>{weatherData.temperature}</strong>
-              <span className="units">°C </span>
-            </div>
+            <img src={weatherData.imgUrl} alt={weatherData.description} />
+            {weatherData.temperature}
+            <span className="units">°C </span>
           </div>
         </div>
         <div className="col-6">
           <ul>
             <li>
-              <i>Feels Like 24°</i>
+              <i>Feels Like 24°C</i>
             </li>
-            <li>Humidity:{weatherData.humidity}%</li>
-            <li>Wind Speed:{weatherData.wind} km/h</li>
+            <li>Humidity: {weatherData.humidity}%</li>
+            <li>Wind Speed: {weatherData.wind} km/h</li>
           </ul>
         </div>
       </div>
